@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import IPerson from '../../types/interfacePerson';
 import Card from '../Cards/Card';
+import { URL } from '../../variavelURL';
 
 import './GeneralList.scss';
 
@@ -9,7 +10,7 @@ export default function GeneralList() {
 
     useEffect(() => {
         async function listAPI() {   
-            const response = await fetch('http://localhost:3000/');
+            const response = await fetch(URL);
             const people: IPerson[] = await response.json()
             setAllPerson(people)
         }
