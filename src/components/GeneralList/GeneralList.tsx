@@ -17,20 +17,24 @@ export default function GeneralList() {
         listAPI()
     },[])
 
-    return(
-        <div className='generalListContainer'>
+    if(!allPerson) {
+        return <p>Carregando...</p>
+    } else {
+        return(
+            <div className='generalListContainer'>
             {allPerson && allPerson.map(person => {
                 return (
                     <Card
-                        key={person.uuid}
-                        name={person.name}
-                        lastName={person.lastName}
-                        birthday={person.birthday}
-                        age={person.age}
-                        isLegalAge={person.isLegalAge}
-                        uuid={person.uuid} />
-                )
-            })}
-        </div>
-    )
+                    key={person.uuid}
+                    name={person.name}
+                    lastName={person.lastName}
+                    birthday={person.birthday}
+                    age={person.age}
+                    isLegalAge={person.isLegalAge}
+                    uuid={person.uuid} />
+                    )
+                })}
+            </div>
+        )
+    }
 }

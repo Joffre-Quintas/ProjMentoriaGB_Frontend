@@ -1,3 +1,5 @@
+@use '../../variables';
+
 .header {
     height: 4rem;
     background: transparent;
@@ -20,7 +22,10 @@
                 transition: all 0.3s linear;
                 position: relative;
                 font-size: 1.2rem;
+                color: variables.$primary-color;
+
                 
+
                 &:hover {
                     scale: 1.1;
                     opacity: 0.8;

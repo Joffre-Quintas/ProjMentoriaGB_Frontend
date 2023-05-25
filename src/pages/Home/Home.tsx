@@ -1,4 +1,4 @@
-import GeneralList from "../components/GeneralList/GeneralList";
+import GeneralList from "../../components/GeneralList/GeneralList";
 
 export default function Home() {
     return(
