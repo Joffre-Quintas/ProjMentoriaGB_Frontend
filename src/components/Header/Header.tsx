@@ -9,7 +9,7 @@ export default function Header () {
                     <li>Registrar</li>
                     <li>Mair Idade</li>
                     <li>Menor Idade</li>
-                    <li>Ordem AsC</li>
+                    <li>Ordem ASC</li>
                     <li>Ordem DESC</li>
                 </ul>
             </nav>

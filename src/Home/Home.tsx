@@ -1,5 +1,9 @@
+import GeneralList from "../components/GeneralList/GeneralList";
+
 export default function Home() {
     return(
-        <h1>Home</h1>
+        <>
+            <GeneralList/>
+        </>
     )
 }
