@@ -1,0 +1,31 @@
+.header {
+    height: 4rem;
+    background: transparent;
+    padding: 0 1rem;
+    backdrop-filter: 4px;
+    box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
+
+    &_nav{
+        height: 100%;
+
+        & > ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            list-style: none;
+
+            & > li {
+                cursor: pointer;
+                transition: all 0.3s linear;
+                position: relative;
+                font-size: 1.2rem;
+                
+                &:hover {
+                    scale: 1.1;
+                    opacity: 0.8;
+                }
+            }
+        }
+    } 
+}
