@@ -21,13 +21,13 @@ export default function GeneralList() {
             {allPerson && allPerson.map(person => {
                 return (
                     <Card
-                        key={person.name + person.lastName}
+                        key={person.uuid}
                         name={person.name}
                         lastName={person.lastName}
                         birthday={person.birthday}
                         age={person.age}
                         isLegalAge={person.isLegalAge}
-                    />
+                        uuid={person.uuid} />
                 )
             })}
         </div>

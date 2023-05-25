@@ -4,4 +4,5 @@ export default interface IPerson {
     birthday: string,
     age: number,
     isLegalAge: boolean
+    uuid: string
 }
