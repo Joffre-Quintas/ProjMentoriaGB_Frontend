@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import './Register.scss';
 import { URL } from '../../variavelURL';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
+    const navigate = useNavigate()
     interface IForm {
         name: string,
         lastName:string,
@@ -36,8 +38,8 @@ export default function Register() {
                 'Content-type': 'application/json'
             },
             body: JSON.stringify(form)
-          })
-          alert('Usuário Cadastrado!')
+          }).then(() =>  navigate('/registerSucessfull'))
+
         } catch (err) {
             console.log(err)
         }

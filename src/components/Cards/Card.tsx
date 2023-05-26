@@ -3,6 +3,10 @@ import { URL } from '../../variavelURL';
 
 import './Card.scss';
 
+//Icons
+import { GrUpdate } from 'react-icons/gr';
+import { RiDeleteBinLine } from 'react-icons/ri';
+
 async function deletePerson(uuid:string) {
     try {
         await fetch(`${URL}/delete-person/${uuid}`, {
@@ -21,12 +25,8 @@ export default function Card(props:IPerson) {
         <div key={props.uuid} className='card'>
             
             <div>
-                <p className='card_label'>Nome:</p>
-                <p>{props.name}</p>
-            </div>
-            <div>
-                <p className='card_label'>Sobrenome:</p>
-                <p>{props.lastName}</p>
+                <p className='card_label'>Nome Completo:</p>
+                <p>{props.name} {props.lastName}</p>
             </div>
             <div>
                 <p className='card_label'>Data de Nascimento:</p>
@@ -40,9 +40,9 @@ export default function Card(props:IPerson) {
                 {props.isLegalAge ? <p className="legalAge">De maior</p> : <p className="notLegalAge">De menor</p>}
             </div>
             <div className="card_actions">
-                <button>Atualizar</button>
+                <button><GrUpdate/> Atualizar</button>
                 <button>Exibir</button>
-                <button onClick={() => deletePerson(props.uuid)}>Excluir</button>
+                <button onClick={() => deletePerson(props.uuid)}><RiDeleteBinLine/> Excluir</button>
             </div>
         </div>
     )
