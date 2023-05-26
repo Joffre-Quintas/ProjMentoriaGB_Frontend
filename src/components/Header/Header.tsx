@@ -8,8 +8,8 @@ export default function Header () {
                 <ul>
                     <li><Link to={'/'}>Geral</Link></li>
                     <li><Link to={'/create-person'}>Registrar</Link></li>
-                    <li>Maior Idade</li>
-                    <li>Menor Idade</li>
+                    <li><Link to={'/list-of-legalage'}>Maior Idade</Link></li>
+                    <li><Link to={'/list-of-not-legalage'}>Menor Idade</Link></li>
                     <li>Ordem ASC</li>
                     <li>Ordem DESC</li>
                 </ul>

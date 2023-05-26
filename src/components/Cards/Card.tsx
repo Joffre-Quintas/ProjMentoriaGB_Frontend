@@ -34,7 +34,7 @@ export default function Card(props:IPerson) {
             </div>
             <div>
                 <p className='card_label'>Idade:</p>
-                <p>{props.age} anos</p>
+                <p>{props.age} {props.age <= 1 ? 'ano' : 'anos'}</p>
             </div>
             <div>
                 {props.isLegalAge ? <p className="legalAge">De maior</p> : <p className="notLegalAge">De menor</p>}

@@ -1,10 +1,10 @@
 import GeneralList from "../../components/GeneralList/GeneralList";
 import { URL } from "../../variavelURL";
 
-export default function Home() {
+export default function LegalAgeList() {
     return(
         <>
-            <GeneralList endpoint={URL}/>
+            <GeneralList endpoint={`${URL}/list-of-legalage`}/>
         </>
     )
 }

@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import IPerson from '../../types/interfacePerson';
 import Card from '../Cards/Card';
-import { URL } from '../../variavelURL';
+import IEndpoint from '../../types/interfaceEndpoint';
 
 import './GeneralList.scss';
 
-export default function GeneralList() {
+export default function GeneralList(props:IEndpoint) {
     const [allPerson, setAllPerson] = useState<IPerson[]>(null!);
 
     useEffect(() => {
         async function listAPI() {   
-            const response = await fetch(URL);
+            const response = await fetch(props.endpoint);
             const people: IPerson[] = await response.json()
             setAllPerson(people)
         }
@@ -19,6 +19,8 @@ export default function GeneralList() {
 
     if(!allPerson) {
         return <p>Carregando...</p>
+    } else if (allPerson.length == 0 ) {
+        return <p>Não há pessoas neste perfil.</p>
     } else {
         return(
             <div className='generalListContainer'>
