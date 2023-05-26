@@ -9,24 +9,17 @@
     gap: 0.5rem;
     margin: 1rem;
     position: relative;
-
+    width: 300px;
     & > div:not(:last-child) {
         display: flex;
+        flex-direction: column;
 
-        & p {
-            width: 50%;
-        }
         & .card_label {
             position: relative;
             color: variables.$primary-color;    
         }
     }
-    // & .legalAge {
-    //     color: rgb(38, 204, 38);
-    // }
-    // & .notLegalAge {
-    //     color: rgb(247, 82, 82);
-    // }
+    
     & div:last-child {
         display: flex;
         justify-content: space-between;
