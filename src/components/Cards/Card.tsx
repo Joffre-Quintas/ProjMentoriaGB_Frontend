@@ -1,5 +1,7 @@
 import IPerson from "../../types/interfacePerson";
 import { URL } from '../../variavelURL';
+import { useState } from 'react';
+import Modal from "../Modal/Modal";
 
 import './Card.scss';
 
@@ -21,29 +23,39 @@ async function deletePerson(uuid:string) {
 
 
 export default function Card(props:IPerson) {
+    const [showModal,setShowModal] = useState(false);
+    
+    function handleShowModal() {
+        setShowModal(() => !showModal)
+    }
+
     return (
-        <div key={props.uuid} className='card'>
-            
-            <div>
-                <p className='card_label'>Nome Completo:</p>
-                <p>{props.name} {props.lastName}</p>
+        <>
+            <div key={props.uuid} className='card'>
+                
+                <div>
+                    <p className='card_label'>Nome Completo:</p>
+                    <p>{props.name} {props.lastName}</p>
+                </div>
+                <div>
+                    <p className='card_label'>Data de Nascimento:</p>
+                    <p>{props.birthday}</p>
+                </div>
+                <div>
+                    <p className='card_label'>Idade:</p>
+                    <p>{props.age} {props.age <= 1 ? 'ano' : 'anos'}</p>
+                </div>
+                <div>
+                    {props.isLegalAge ? <p className="legalAge">De maior</p> : <p className="notLegalAge">De menor</p>}
+                </div>
+                <div className="card_actions">
+                    <button onClick={handleShowModal}><GrUpdate/> Atualizar</button>
+                    <button>Exibir</button>
+                    <button onClick={() => deletePerson(props.uuid)}><RiDeleteBinLine/> Excluir</button>
+                </div>
+
             </div>
-            <div>
-                <p className='card_label'>Data de Nascimento:</p>
-                <p>{props.birthday}</p>
-            </div>
-            <div>
-                <p className='card_label'>Idade:</p>
-                <p>{props.age} {props.age <= 1 ? 'ano' : 'anos'}</p>
-            </div>
-            <div>
-                {props.isLegalAge ? <p className="legalAge">De maior</p> : <p className="notLegalAge">De menor</p>}
-            </div>
-            <div className="card_actions">
-                <button><GrUpdate/> Atualizar</button>
-                <button>Exibir</button>
-                <button onClick={() => deletePerson(props.uuid)}><RiDeleteBinLine/> Excluir</button>
-            </div>
-        </div>
+            {showModal && <Modal obj={props}/>}
+        </>
     )
 }
