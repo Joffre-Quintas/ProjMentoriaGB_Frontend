@@ -50,6 +50,9 @@
                 opacity: .9;
             }
         }
-
+        & .cancel {
+            background-color: rgb(235, 75, 75);
+            margin-top: 1rem;
+        }
     }
 }

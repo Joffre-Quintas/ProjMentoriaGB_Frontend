@@ -25,7 +25,8 @@ async function deletePerson(uuid:string) {
 export default function Card(props:IPerson) {
     const [showModal,setShowModal] = useState(false);
     
-    function handleShowModal() {
+    function handleShowModal(e:React.FormEvent) {
+        e.preventDefault()
         setShowModal(() => !showModal)
     }
 
@@ -49,13 +50,13 @@ export default function Card(props:IPerson) {
                     {props.isLegalAge ? <p className="legalAge">De maior</p> : <p className="notLegalAge">De menor</p>}
                 </div>
                 <div className="card_actions">
-                    <button onClick={handleShowModal}><GrUpdate/> Atualizar</button>
+                    <button onClick={(e) => handleShowModal(e)}><GrUpdate/> Atualizar</button>
                     <button>Exibir</button>
                     <button onClick={() => deletePerson(props.uuid)}><RiDeleteBinLine/> Excluir</button>
                 </div>
 
             </div>
-            {showModal && <Modal obj={props}/>}
+            {showModal && <Modal obj={props} state={[showModal, setShowModal]}/>}
         </>
     )
 }
