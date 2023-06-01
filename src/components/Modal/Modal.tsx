@@ -14,7 +14,7 @@ export default function Modal({ obj,state }: IModalProps) {
         lastName:'',
         birthday: ''
     })
-    const [showModal, setShowModal] = state;
+    const [_, setShowModal] = state;
 
     useEffect(() => {
         async function loadData() {
