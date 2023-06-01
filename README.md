@@ -1,6 +1,7 @@
 # Projeto de Mentoria - README
 
-image.png
+![front deployado](https://github.com/Joffre-Quintas/ProjMentoriaGB_Frontend/assets/117463401/a02e79b0-00b9-483b-9a03-0b2083c89058)
+
 
 Este é o repositório do projeto de mentoria desenvolvido como parte do Programa Boticário. O projeto consiste em uma aplicação fullstack com o objetivo de praticar o desenvolvimento do CRUD, trabalhar com datas, manipular endpoints e rotas.
 
