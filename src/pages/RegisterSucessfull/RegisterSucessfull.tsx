@@ -4,13 +4,18 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function RegisterSucessfull() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    
 
-    useEffect(()=> {
-        setInterval(() => {
-            navigate('/')
-        },3000)
-    },[])
+    useEffect(() => {
+        const redirect = setTimeout(() => {
+            navigate('/');
+        }, 3000);
+
+        return () => {
+            clearTimeout(redirect);
+        };
+    }, []);
 
     return(
         <div className='registersucessfull'>

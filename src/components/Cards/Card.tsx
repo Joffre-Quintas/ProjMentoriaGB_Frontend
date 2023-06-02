@@ -6,7 +6,7 @@ import Modal from "../Modal/Modal";
 import './Card.scss';
 
 //Icons
-import { GrUpdate } from 'react-icons/gr';
+import { FiRefreshCcw } from 'react-icons/fi';
 import { RiDeleteBinLine } from 'react-icons/ri';
 
 async function deletePerson(uuid:string) {
@@ -50,8 +50,7 @@ export default function Card(props:IPerson) {
                     {props.isLegalAge ? <p className="legalAge">De maior</p> : <p className="notLegalAge">De menor</p>}
                 </div>
                 <div className="card_actions">
-                    <button onClick={(e) => handleShowModal(e)}><GrUpdate/> Atualizar</button>
-                    <button>Exibir</button>
+                    <button onClick={(e) => handleShowModal(e)}><FiRefreshCcw/> Atualizar</button>
                     <button onClick={() => deletePerson(props.uuid)}><RiDeleteBinLine/> Excluir</button>
                 </div>
 

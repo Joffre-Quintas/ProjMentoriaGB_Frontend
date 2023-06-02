@@ -33,7 +33,11 @@
             display: flex;
             gap: 8px;
             align-items: center;
-            
+            font-family: variables.$font-family-default;
+
+            & > svg {
+                color: white;
+            }
             &:hover {
                 opacity: 0.9;
             }
