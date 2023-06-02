@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { URL } from '../../variavelURL';
 import IPerson from '../../types/interfacePerson';
 
