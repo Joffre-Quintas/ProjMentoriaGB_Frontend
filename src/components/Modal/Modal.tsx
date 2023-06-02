@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ButtonHTMLAttributes, useEffect, useState } from 'react';
 import { URL } from '../../variavelURL';
 import IPerson from '../../types/interfacePerson';
 
@@ -42,6 +42,19 @@ export default function Modal({ obj,state }: IModalProps) {
         })
     }
 
+    async function handleUpdatePerson(e:React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+        e.preventDefault();
+        await fetch(`${URL}/update-person/${obj.uuid}`, {
+            method: "PUT",
+            headers:{
+                "Content-type":"application/json"
+            },
+            body: JSON.stringify(person) 
+        })
+        alert('Atualizada com sucesso!')
+        window.location.reload()       
+    }
+
     return(
         <div className='containerModal'>
             <div className='containerModal_modal'>
@@ -53,13 +66,13 @@ export default function Modal({ obj,state }: IModalProps) {
                     </div>
                     <div>
                         <label htmlFor="lastName">Sobrenome:</label>
-                        <input type="text" name="lastName" id="lastName" value={person && person.lastName}/>
+                        <input type="text" name="lastName" id="lastName" value={person && person.lastName} onChange={(e) => handleChangeInput(e)}/>
                     </div>
                     <div>
                         <label htmlFor="birthday">Data de Nascimento:</label>
-                        <input type="date" name="birthday" id="birthday" />
+                        <input type="date" name="birthday" id="birthday" onChange={(e) => handleChangeInput(e)}/>
                     </div>
-                    <button>Atualizar</button>
+                    <button onClick={(e) => handleUpdatePerson(e)}>Atualizar</button>
                     <button className='cancel' onClick={(e) => handleShowModal(e)}>Cancelar</button>
                 </form>
             </div>
